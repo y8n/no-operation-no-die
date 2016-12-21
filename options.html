@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>地址管理</title>
+    <link>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/options.css">
+</head>
+
+<body>
+    <div id="app" class="container">
+        <div class="page-header">
+            <h1>已添加警告的站点</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-1 col-sm-1">
+                <button type="button" @click="addItemHandler" class="btn btn-sm btn-primary">添加</button>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <input type="text" class="form-control input-sm" v-model="query" placeholder="查询关键字">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped">
+                    <tr>
+                        <th>#</th>
+                        <th>名称</th>
+                        <th>URL</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr v-for="(index,item) in list | filterBy query" :key="index">
+                        <td>{{index + 1}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.url}}</td>
+                        <td class="nowrap">
+                            <span class="label cur-pot" @click="toggleItemHandler(item)" :class="{'label-success':item.avaliable,'label-warning':!item.avaliable}">
+                                已{{item.avaliable?'启用':'禁用'}}</span>
+                            <span class="label cur-pot label-primary" @click="editItemHandler(item)">编辑</span>
+                            <span class="label cur-pot label-danger" @click="deleteItemHandler(item)">删除</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <modal :type="modalType" :item="editItem" :show.sync="showModal" :on-close="onModalCloseHandler"></modal>
+    </div>
+    <script type="x/template" id="modal-template">
+        <div class="modal" :class="{show:show}">
+            <div class="modal-dialog  modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" @click="show=false">
+                            <span>&times;</span>
+                        </button>
+                        <h4 class="modal-title">{{modalHeader}}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form">
+                            <div class="form-group">
+                                <label>名称</label>
+                                <input @keyup.enter="keyUpHandler" type="text" v-model="item.name" class="form-control" placeholder="应用名，必填">
+                            </div>
+                            <div class="form-group">
+                                <label>URL</label>
+                                <input @keyup.enter="keyUpHandler" type="text" v-model="item.url" class="form-control" placeholder="可以是正则表达式，如^[a-z]{2,3}$，必填">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-sm btn-success" :disabled="disabledBtn" @click="onCloseHandler">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="text/javascript" src="scripts/vue.min.js"></script>
+    <script type="text/javascript" src="scripts/options.js"></script>
+</body>
+
+</html>

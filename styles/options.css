@@ -1,0 +1,11 @@
+.modal {
+    background: rgba(0, 0, 0, .5);
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.cur-pot {
+    cursor: pointer;
+}

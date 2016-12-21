@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url("../img/background.png");
+    width: 120px;
+}
+
+.hide {
+    display: none;
+}
+
+.body {
+    padding: 15px;
+}
+
+.operate-list {
+    list-style: none;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+li {
+    padding: 5px 0;
+    color: #4c4848;
+    cursor: pointer;
+}
+
+li:hover {
+    background: #ddd;
+}
+
+footer {
+    padding: 5px 15px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 16px;
+    color: #666;
+    cursor: pointer;
+}
+
+footer:hover {
+    background: #eee;
+}
+
+footer img {
+    float: left;
+    margin-right: 8px;
+}

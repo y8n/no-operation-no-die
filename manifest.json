@@ -1,0 +1,22 @@
+{
+    "content_scripts": [{
+        "js": ["scripts/jquery.min.js", "scripts/no-operation-no-die.js"],
+        "matches": ["*://*/*"],
+        "run_at": "document_end"
+    }],
+    "description": "防止误操作线上数据",
+    "icons": {
+        "128": "img/icon128.png",
+        "16": "img/icon16.png",
+        "48": "img/icon48.png"
+    },
+    "manifest_version": 2,
+    "name": "No Operation No Die",
+    "options_page": "options.html",
+    "permissions": ["storage", "activeTab", "tabs"],
+    "version": "0.1.0",
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "web_accessible_resources": ["options.html"]
+}
