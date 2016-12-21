@@ -3,7 +3,7 @@
 
 
 ### 页面加载之后
-![](http://p0.meituan.net/dpnewvc/9b5b3acd0c7873259018b35e97abf03b120499.png)
+![](https://cloud.githubusercontent.com/assets/8521368/21384536/ee7b2174-c7a5-11e6-993a-8f3404bcb17b.png)
 ### 第一次点击关闭
-![](http://p0.meituan.net/dpnewvc/041a3bdeec1d17beef0c65087db32ba6120030.png)
+![](https://cloud.githubusercontent.com/assets/8521368/21384568/05d4032c-c7a6-11e6-90a0-69d7ff4886be.png)
 再次点击关闭才能彻底消失 :)
